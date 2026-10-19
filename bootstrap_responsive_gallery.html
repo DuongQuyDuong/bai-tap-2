@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Responsive Image Gallery - Bootstrap</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body { background:#f5f7fb; color:#202c3d; font-family: Arial, Helvetica, sans-serif; }
+    .gallery-header { background:linear-gradient(120deg,#152a45,#305889); color:white; padding:54px 16px 46px; text-align:center; }
+    .gallery-header h1 { font-weight:700; letter-spacing:.3px; }
+    .gallery-header p { color:#e0eaf7; margin:12px auto 0; max-width:650px; }
+    .gallery-wrap { padding-top:42px; padding-bottom:54px; }
+    .photo-card { height:100%; background:white; border:1px solid #e1e7ef; border-radius:12px; overflow:hidden; box-shadow:0 6px 18px rgba(20,45,70,.07); transition:transform .2s,box-shadow .2s; }
+    .photo-card:hover { transform:translateY(-5px); box-shadow:0 12px 25px rgba(20,45,70,.13); }
+    .photo-card img { width:100%; height:190px; object-fit:cover; display:block; }
+    .photo-card .caption { padding:16px; }
+    .photo-card h2 { font-size:1.05rem; font-weight:700; margin-bottom:6px; }
+    .photo-card p { font-size:.91rem; color:#64748b; margin:0; }
+    footer { padding:23px 12px; text-align:center; background:#e9eef6; font-size:.9rem; color:#526174; }
+  </style>
+</head>
+<body>
+  <header class="gallery-header">
+    <h1>Thư viện ảnh thiên nhiên</h1>
+    <p>Responsive Image Gallery xây dựng bằng Bootstrap Grid System</p>
+  </header>
+  <main class="container gallery-wrap">
+    <div class="row g-4">
+      <!-- Mobile: 1 cột | Tablet: 2 cột | Desktop: 4 cột -->
+      <div class="col-12 col-sm-6 col-lg-3"><article class="photo-card"><img src="https://picsum.photos/id/1018/650/450" alt="Phong cảnh núi và hồ"><div class="caption"><h2>Núi và hồ</h2><p>Không gian bình yên giữa thiên nhiên.</p></div></article></div>
+      <div class="col-12 col-sm-6 col-lg-3"><article class="photo-card"><img src="https://picsum.photos/id/1015/650/450" alt="Dòng sông dưới núi"><div class="caption"><h2>Dòng sông</h2><p>Dòng nước chảy qua thung lũng.</p></div></article></div>
+      <div class="col-12 col-sm-6 col-lg-3"><article class="photo-card"><img src="https://picsum.photos/id/1016/650/450" alt="Phong cảnh núi đá"><div class="caption"><h2>Vùng núi</h2><p>Những dãy núi hùng vĩ.</p></div></article></div>
+      <div class="col-12 col-sm-6 col-lg-3"><article class="photo-card"><img src="https://picsum.photos/id/1022/650/450" alt="Cảnh thiên nhiên rộng lớn"><div class="caption"><h2>Thiên nhiên</h2><p>Khám phá vẻ đẹp của thế giới.</p></div></article></div>
+      <div class="col-12 col-sm-6 col-lg-3"><article class="photo-card"><img src="https://picsum.photos/id/1036/650/450" alt="Đồi núi xanh"><div class="caption"><h2>Đồi xanh</h2><p>Những lớp đồi nối tiếp nhau.</p></div></article></div>
+      <div class="col-12 col-sm-6 col-lg-3"><article class="photo-card"><img src="https://picsum.photos/id/1039/650/450" alt="Thác nước"><div class="caption"><h2>Thác nước</h2><p>Sự mạnh mẽ của dòng chảy.</p></div></article></div>
+      <div class="col-12 col-sm-6 col-lg-3"><article class="photo-card"><img src="https://picsum.photos/id/1043/650/450" alt="Cảnh rừng cây"><div class="caption"><h2>Rừng xanh</h2><p>Mảng xanh dịu mát và trong lành.</p></div></article></div>
+      <div class="col-12 col-sm-6 col-lg-3"><article class="photo-card"><img src="https://picsum.photos/id/1044/650/450" alt="Bờ biển"><div class="caption"><h2>Bờ biển</h2><p>Khung cảnh thư giãn cuối ngày.</p></div></article></div>
+    </div>
+  </main>
+  <footer>© 2026 - Bài thực hành Bootstrap Responsive Gallery</footer>
+</body>
+</html>
