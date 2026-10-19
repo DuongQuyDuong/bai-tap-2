@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MetricsHub - Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+:root{--bg:#f4f7ff;--ink:#17223c;--muted:#68758f;--line:#e1e7f3;--primary:#5865e8}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",sans-serif}a{text-decoration:none}.site-header{background:#fff;border-bottom:1px solid var(--line)}
+/* Flexbox: bố trí 1 chiều, co giãn / xuống dòng theo độ dài chữ */
+.nav-flex{max-width:1240px;margin:auto;padding:18px 24px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}.brand{font-size:1.25rem;font-weight:800;color:#3543ae;white-space:nowrap}.nav-links{display:flex;gap:10px 20px;flex-wrap:wrap;align-items:center;min-width:0}.nav-links a{font-size:.93rem;color:#53617a;overflow-wrap:anywhere}.nav-links a:hover{color:var(--primary)}.profile{border-radius:24px;background:#edf0ff;padding:9px 16px;color:#4050bd;white-space:nowrap;font-size:.9rem}.page-shell{max-width:1240px;margin:auto;padding:30px 24px 56px}.intro{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px;margin-bottom:32px}.eyebrow{color:var(--primary);letter-spacing:.13em;font-size:.72rem;font-weight:700}h1{font-size:clamp(1.6rem,3vw,2.5rem);font-weight:800;margin:9px 0}.intro p{color:var(--muted);max-width:660px;margin:0}.status-pill{background:#e7f7ee;color:#238453;padding:9px 14px;border-radius:999px;font-size:.83rem}.section-head{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin:28px 0 16px}.section-head h2{font-size:1.28rem;font-weight:750;margin:0}.section-head span{color:var(--muted);font-size:.85rem}
+/* CSS Grid 2D: widget lớn chiếm 2 hàng, các widget còn lại cùng cấp trong DOM */
+.grid-dashboard{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:minmax(154px,auto);gap:16px}.widget{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px;min-width:0;box-shadow:0 6px 20px #2a3b8a08}.widget-feature{grid-column:span 2;grid-row:span 2;background:linear-gradient(140deg,#fff,#f7f6ff)}.widget-wide{grid-column:span 2}.widget-top{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:.87rem;color:var(--muted);margin-bottom:20px}.metric-large{font-size:clamp(1.7rem,3vw,2.6rem);font-weight:850}.metric{font-size:2rem;font-weight:800}.muted{color:var(--muted);font-size:.9rem;margin:6px 0}.symbol{font-size:1.3rem;color:var(--primary)}.tag{background:#e9edff;color:#4b56be;padding:5px 9px;border-radius:8px;font-size:.75rem}.bar-chart{height:160px;display:flex;align-items:end;gap:14px;margin:28px 0 10px;border-bottom:1px solid #dae1f2}.bar-chart i{height:var(--h);flex:1;border-radius:8px 8px 0 0;background:linear-gradient(#8891f7,#5361d8)}.widget small{color:#8993a8;font-size:.7rem}.progress-track{height:10px;background:#e6eafa;border-radius:20px;overflow:hidden;margin:18px 0}.progress-fill{width:99.2%;height:100%;background:#6271e5;border-radius:20px}
+/* Pricing: Bootstrap row / col-12 col-md-4 cung cấp responsive grid */
+.pricing-section{margin-top:40px}.plan{border:1px solid var(--line);border-radius:18px;box-shadow:0 6px 20px #2a3b8a08}.plan .card-body{padding:26px;display:flex;flex-direction:column;gap:8px}.plan h3{font-weight:750}.price{font-size:1.7rem;font-weight:800;margin:6px 0}.price span{font-size:.8rem;font-weight:400;color:var(--muted)}.plan-copy{color:var(--muted);min-height:48px}.plan .btn{margin-top:auto}.plan-highlight{border:2px solid var(--primary)}.recommend{align-self:start;background:#e9edff;color:#414baf;padding:3px 10px;border-radius:20px;font-size:.75rem}footer{text-align:center;color:var(--muted);padding:24px;border-top:1px solid var(--line);font-size:.85rem}
+@media(max-width:900px){.grid-dashboard{grid-template-columns:repeat(2,minmax(0,1fr))}.widget-feature{grid-column:span 2}.widget-wide{grid-column:span 2}}
+@media(max-width:600px){.nav-flex{padding:16px;align-items:flex-start}.nav-links{width:100%;order:3;gap:10px 16px}.profile{margin-left:auto}.page-shell{padding:24px 16px}.grid-dashboard{grid-template-columns:minmax(0,1fr)}.widget-feature,.widget-wide{grid-column:auto;grid-row:auto}.widget{padding:18px}.bar-chart{height:120px}.section-head h2{font-size:1.13rem}}
+
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav-flex" aria-label="Điều hướng chính">
+      <a class="brand" href="#home">◈ MetricsHub</a>
+      <div class="nav-links">
+        <a href="#home">Trang chủ</a>
+        <a href="#dashboard">Dashboard / SehrLangesDeutschesDashboardWort</a>
+        <a href="#pricing">Bảng giá</a>
+        <a href="#about">Liên hệ</a>
+      </div>
+      <a class="profile" href="#about">● Tài khoản</a>
+    </nav>
+  </header>
+
+  <main class="page-shell" id="home">
+    <section class="intro" aria-labelledby="intro-title">
+      <div>
+        <span class="eyebrow">BÁO CÁO TỔNG QUAN</span>
+        <h1 id="intro-title">Bảng điều khiển MetricsHub</h1>
+        <p>Theo dõi hiệu quả hoạt động qua các chỉ số minh họa. Bố cục linh hoạt trên điện thoại, máy tính bảng và máy tính.</p>
+      </div>
+      <span class="status-pill">● Dữ liệu minh họa</span>
+    </section>
+
+    <section id="dashboard" aria-labelledby="dashboard-title">
+      <div class="section-head"><h2 id="dashboard-title">Dashboard · CSS Grid</h2><span>Widget kích thước linh hoạt</span></div>
+      <div class="grid-dashboard">
+        <article class="widget widget-feature">
+          <div class="widget-top"><span>Doanh thu</span><span class="tag">Tổng quan</span></div>
+          <strong class="metric-large">₫ 248,6 triệu</strong>
+          <p class="muted">+18,2% so với kỳ trước</p>
+          <div class="bar-chart" aria-label="Biểu đồ thanh minh họa">
+            <i style="--h:38%"></i><i style="--h:58%"></i><i style="--h:44%"></i><i style="--h:72%"></i><i style="--h:63%"></i><i style="--h:87%"></i><i style="--h:100%"></i>
+          </div>
+          <small>Thứ hai &nbsp;·&nbsp; Thứ ba &nbsp;·&nbsp; Thứ tư &nbsp;·&nbsp; Thứ năm &nbsp;·&nbsp; Thứ sáu</small>
+        </article>
+        <article class="widget">
+          <div class="widget-top"><span>Người dùng mới</span><span class="symbol">↗</span></div>
+          <strong class="metric">2.480</strong>
+          <p class="muted">+12,5% tuần này</p>
+        </article>
+        <article class="widget">
+          <div class="widget-top"><span>Tỷ lệ chuyển đổi</span><span class="symbol">◎</span></div>
+          <strong class="metric">8,4%</strong>
+          <p class="muted">Tăng 1,1 điểm %</p>
+        </article>
+        <article class="widget">
+          <div class="widget-top"><span>Đơn hàng</span><span class="symbol">▣</span></div>
+          <strong class="metric">1.205</strong>
+          <p class="muted">Xử lý thành công</p>
+        </article>
+        <article class="widget">
+          <div class="widget-top"><span>Độ hài lòng</span><span class="symbol">★</span></div>
+          <strong class="metric">96%</strong>
+          <p class="muted">Khách hàng đánh giá tốt</p>
+        </article>
+        <article class="widget widget-wide">
+          <div class="widget-top"><span>Hiệu suất vận hành</span><span class="tag">Ổn định</span></div>
+          <strong class="metric">99,2%</strong>
+          <div class="progress-track"><div class="progress-fill"></div></div>
+          <p class="muted">Tỷ lệ hoạt động của dịch vụ · dữ liệu minh họa</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="pricing" class="pricing-section" aria-labelledby="pricing-title">
+      <div class="section-head"><h2 id="pricing-title">Bảng giá · Bootstrap 12 cột</h2><span>3 cột desktop, xếp dọc mobile</span></div>
+      <div class="container-fluid px-0">
+        <div class="row g-3">
+          <div class="col-12 col-md-4"><article class="card h-100 plan"><div class="card-body"><h3 class="h5">Cơ bản</h3><p class="price">Miễn phí</p><p class="plan-copy">Thống kê thiết yếu cho nhóm nhỏ.</p><a href="mailto:demo@example.com?subject=MetricsHub%20Co%20ban" class="btn btn-outline-primary w-100">Tìm hiểu</a></div></article></div>
+          <div class="col-12 col-md-4"><article class="card h-100 plan plan-highlight"><div class="card-body"><span class="recommend">Phổ biến</span><h3 class="h5">Nâng cao</h3><p class="price">299.000đ<span>/tháng</span></p><p class="plan-copy">Báo cáo sâu và bảng điều khiển mở rộng.</p><a href="mailto:demo@example.com?subject=MetricsHub%20Nang%20cao" class="btn btn-primary w-100">Tìm hiểu</a></div></article></div>
+          <div class="col-12 col-md-4"><article class="card h-100 plan"><div class="card-body"><h3 class="h5">Doanh nghiệp</h3><p class="price">Liên hệ</p><p class="plan-copy">Giải pháp linh hoạt cho tổ chức lớn.</p><a href="mailto:demo@example.com?subject=MetricsHub%20Doanh%20nghiep" class="btn btn-outline-primary w-100">Tìm hiểu</a></div></article></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+<section class="page-shell" aria-label="Tài liệu báo cáo" style="padding-top:0">
+<h2 style="font-size:1.2rem">Tài liệu bài thực hành</h2>
+<details style="background:white;margin:12px 0;padding:18px;border:1px solid #e1e7f3;border-radius:12px"><summary style="cursor:pointer;font-weight:700">Giải trình lựa chọn bố cục (layout_strategy.md)</summary><pre style="white-space:pre-wrap;overflow-wrap:anywhere;font-family:inherit;margin-top:16px"># Chiến lược bố cục MetricsHub
+
+**Đánh giá legacy:** Navbar dùng Grid cột cố định dễ tràn chữ khi đổi ngôn ngữ. Dashboard dùng nhiều Flexbox lồng nhau khiến khó kiểm soát widget chiếm nhiều hàng/cột. Pricing dùng float và media query thủ công dù Bootstrap đã hỗ trợ sẵn.
+
+**Giải pháp:** Navbar dùng **Flexbox** (`justify-content: space-between`, `align-items: center`, `flex-wrap: wrap`) để các mục tự co giãn và xuống dòng theo nội dung. Dashboard dùng **CSS Grid** với ba cột, `grid-column: span 2` và `grid-row: span 2` cho Bento Box, loại bỏ lớp `.column` dư thừa. Pricing dùng **Bootstrap** (`row`, `col-12 col-md-4`) để hiển thị ba cột ở desktop và xếp dọc ở mobile.
+
+**Đánh đổi:** Grid phù hợp bố trí 2D; Flexbox hiệu quả để sắp xếp thành phần theo một chiều. Chúng có thể phối hợp: widget đặt trong Grid vẫn có thể dùng Flexbox để căn nội dung bên trong. `gap` giúp giữ khoảng cách nhất quán thay cho nhiều margin riêng lẻ.
+</pre></details>
+<details style="background:white;margin:12px 0;padding:18px;border:1px solid #e1e7f3;border-radius:12px"><summary style="cursor:pointer;font-weight:700">Nhật ký sử dụng AI (ai_prompt_log.md)</summary><pre style="white-space:pre-wrap;overflow-wrap:anywhere;font-family:inherit;margin-top:16px"># Nhật ký tương tác AI — MetricsHub
+
+&gt; Tài liệu tổng hợp nội dung tìm hiểu cùng trợ lý AI trong quá trình chuẩn bị bài; không phải nhật ký nguyên văn các lần kiểm thử trình duyệt.
+
+## 1. CSS Grid hay Flexbox cho Bento Box?
+**Câu hỏi nghiên cứu:** Khi widget cần chiếm 2 hàng và 2 cột, nên dùng công cụ gì?
+
+**Kiến thức rút ra:** Grid xử lý hai trục hàng/cột, hỗ trợ `grid-column` và `grid-row` với `span`; Flexbox chủ yếu sắp xếp theo một trục và không có cơ chế span hàng/cột trực tiếp.
+
+## 2. Navbar có tên menu dài
+**Câu hỏi nghiên cứu:** Làm sao tránh tràn chữ khi menu đổi sang ngôn ngữ có từ dài?
+
+**Kiến thức rút ra:** Dùng Flexbox kết hợp `flex-wrap: wrap`, `min-width: 0`, và `overflow-wrap: anywhere` cho văn bản dài; tránh chiều rộng cột cố định.
+
+## 3. Bootstrap 12 cột
+**Câu hỏi nghiên cứu:** `col-sm-4` khác `col-md-4` ở điểm nào?
+
+**Kiến thức rút ra:** `sm` áp dụng từ breakpoint 576px, `md` từ 768px trong Bootstrap 5; `col-12 col-md-4` là toàn chiều rộng ở màn nhỏ và 4/12 chiều rộng mỗi ô từ 768px trở lên.
+
+## 4. Khoảng cách với gap
+**Câu hỏi nghiên cứu:** `gap` giúp gì so với `margin` trong Grid và Flexbox?
+
+**Kiến thức rút ra:** `gap` thiết lập khoảng cách giữa các ô/con trực tiếp mà không thêm khoảng cách ra phía ngoài container; mã CSS gọn, dễ bảo trì hơn.
+
+## 5. Kiểm thử cần thực hiện
+- Desktop: ba cột dashboard và ba gói giá; widget lớn span 2×2.
+- Tablet: dashboard hai cột, không chồng lấn.
+- Mobile ~375px: dashboard một cột, Navbar xuống dòng, pricing xếp dọc.
+
+**Trạng thái:** Các quy tắc responsive đã được triển khai trong mã nguồn; chưa có đo đạc/ảnh kiểm thử thực tế trên trình duyệt trong phiên này.
+</pre></details>
+</section>
+  <footer id="about">© 2026 MetricsHub · Bài thực hành CSS Layout. Các số liệu là minh họa, không phải dữ liệu thực.</footer>
+</body>
+</html>
