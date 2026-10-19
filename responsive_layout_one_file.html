@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Layout - DIV & CSS</title>
+  <style>
+* { box-sizing: border-box; }
+body { margin: 0; font-family: Arial, Helvetica, sans-serif; color: #303030; background: #fff; }
+.layout { width: min(100%, 1200px); margin: 40px auto; }
+.header { min-height: 56px; display: flex; align-items: stretch; background: #222; color: #eee; }
+.logo { display: flex; align-items: center; padding: 0 18px; font-size: 19px; color: #aaa; }
+.navigation { display: flex; flex-wrap: wrap; }
+.navigation a, .login { display: flex; align-items: center; padding: 0 17px; min-height: 56px; text-decoration: none; color: #aaa; font-size: 14px; }
+.navigation a:hover, .navigation a.active { background: #111; color: #fff; }
+.login { margin-left: auto; white-space: nowrap; }
+.login:hover { color: #fff; }
+.columns { display: grid; grid-template-columns: 17% minmax(0, 1fr) 17%; min-height: 500px; }
+.sidebar { background: #f1f1f1; padding: 22px 16px; }
+.sidebar-left { text-align: center; }
+.sidebar-left a { display: block; padding: 9px; color: #2875ba; font-size: 14px; text-decoration: none; }
+.sidebar-left a:hover { text-decoration: underline; }
+.main-content { padding: 20px 18px; }
+h1 { margin: 0 0 12px; font-size: 38px; font-weight: 500; }
+h2 { font-size: 25px; margin: 22px 0 8px; }
+p { font-size: 14px; line-height: 1.45; margin: 0 0 18px; }
+hr { border: none; border-top: 1px solid #eee; margin: 22px 0; }
+.sidebar-right { display: flex; flex-direction: column; align-items: center; gap: 22px; }
+.ad { display: grid; place-items: center; height: 80px; width: 100%; border: 1px solid #ddd; border-radius: 4px; background: #f6f6f6; color: #444; font-size: 14px; }
+.footer { display: grid; place-items: center; min-height: 65px; background: #555; color: white; font-size: 14px; }
+@media (max-width: 750px) {
+  .layout { margin: 0 auto; }
+  .columns { grid-template-columns: 22% minmax(0, 1fr); }
+  .sidebar-right { grid-column: 1 / -1; display: flex; flex-direction: row; padding: 12px; }
+  .ad { height: 65px; }
+  .navigation a, .login { padding: 0 10px; }
+  h1 { font-size: 32px; }
+}
+@media (max-width: 480px) {
+  .header { flex-wrap: wrap; }
+  .logo { min-height: 48px; }
+  .navigation { width: 100%; order: 3; justify-content: space-around; }
+  .navigation a { min-height: 42px; padding: 0 8px; }
+  .login { min-height: 48px; }
+  .columns { grid-template-columns: 1fr; }
+  .sidebar-left { display: flex; justify-content: center; flex-wrap: wrap; padding: 8px; }
+  .main-content { padding: 18px; }
+  .sidebar-right { grid-column: auto; }
+}
+
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <div class="header">
+      <div class="logo">Logo</div>
+      <div class="navigation">
+        <a href="#home" class="active">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <a href="#login" class="login">➜ Login</a>
+    </div>
+
+    <div class="columns">
+      <div class="sidebar sidebar-left">
+        <a href="#about">Link</a>
+        <a href="#projects">Link</a>
+        <a href="#contact">Link</a>
+      </div>
+
+      <div class="main-content" id="home">
+        <h1>Welcome</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <hr>
+        <h2 id="about">Test</h2>
+        <p>Lorem ipsum...</p>
+      </div>
+
+      <div class="sidebar sidebar-right">
+        <div class="ad">ADS</div>
+        <div class="ad">ADS</div>
+      </div>
+    </div>
+
+    <div class="footer">Footer Text</div>
+  </div>
+</body>
+</html>
